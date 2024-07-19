@@ -25,15 +25,15 @@ DHT20を使い場合は、MSX0への電源投入前に挿しておく必要が�
 "280010"は神戸のコードとなっております。その他の場所のコードは https://weather.tsukumijima.net/primary_area.xml で参照することができます。  
 
 ■ディスクイメージ DIGI_CLC.dsk の中身  
-* AUTOEXEC.BAS
+* AUTOEXEC.BAS  
   メインのBASICプログラムです。
-* FONT.SC5
+* FONT.SC5  
   デジタル時計のグラフィック素材です。起動して、SCREEN5のPAGE1に書き込まれ、そこから文字をPAGE0に持ってきています。
-* LDIRSRT.BIN
+* LDIRSRT.BIN  
   文字列を指定のアドレスに書き込むマシン語プログラムです。
 　メインのBASICではDEFUSR3=&HD800で呼び出すようにしています。
   A=USR3(アドレス) で、書き込む先頭アドレスを指定して、A$=USR3(文字列) で指定したアドレスに文字列を格納します。その時、格納アドレスは自動的に進むので、連続してA$=USR3(文字列)をすることで、長い文字列をユーザーエリアに書き込むことができます。
-* JOSN.BIN
+* JOSN.BIN  
  （入っていません）
 
 ■最後に...  
