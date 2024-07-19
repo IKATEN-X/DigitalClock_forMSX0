@@ -21,7 +21,7 @@ DHT20を使い場合は、MSX0への電源投入前に挿しておく必要が�
 <img src="https://github.com/IKATEN-X/DigitalClock_forMSX0/blob/main/image2.jpg?raw=true" width="300">  
 ※このように接続する場合は、Arduino Unoに空スケッチなどを流し込んで、不活性化しておく必要があります。  
 <br>
-  
+<br>
 ■天気予報について  
 取得したい場所の設定が必要です。メインのBASICプログラムの100行目で変数LC$に設定をしています。   
 "280010"は神戸のコードとなっております。その他の場所のコードは https://weather.tsukumijima.net/primary_area.xml で確認することができますのでお住いの場所に近い所を設定してください。  
