@@ -17,6 +17,7 @@ DigitalClock_forMSX0のディスクイメージには、同梱していないの
 * 温湿度センサー（DHT11もしくは、DHT20）
 冒頭の写真はDHT11をBOTTOM2にある、PortCに挿しています。  
 また、PortAにGrove Beginner Kit for MSX0にある、DHT20を接続しても使用できます。
+<img src="https://github.com/IKATEN-X/DigitalClock_forMSX0/blob/main/image2.jpg?raw=true" width="300">  
 
 ■天気予報について  
 取得したい場所の指定が必要です。メインのBASICプログラムの100行目に場所のコードを格納する変数LC$に設定をしています。   
