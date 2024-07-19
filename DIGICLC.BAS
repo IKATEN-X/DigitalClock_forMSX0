@@ -8,11 +8,10 @@
 80 DQ$=CHR$(&H22):NL$=CHR$(13)+CHR$(10):HE$=NL$+NL$
 90 'user setting
 100 LC$="280010"
-110 PA$="msx/me/if/NET0/"  'path
-120 WT=30                  'wait time
-130 RB=0                   'reboot or wait
+110 '
+120 PA$="msx/me/if/NET0/"  'path
+130 UR$="weather.tsukumijima.net"
 140 'create message
-150 UR$="weather.tsukumijima.net"
 160 SM$(0)="GET /api/forecast/city/"+LC$+" HTTP/1.0"+NL$
 170 SM$(1)="Host: "+UR$+NL$
 180 SM$(2)=""+NL$
@@ -70,10 +69,6 @@
 700 'disconnet
 710 _IOTPUT(PA$+ "connect",0)
 720 RETURN
-730 'system reboot
-740 _IOTPUT("host/power/wait", WT)
-750 _IOTPUT("host/power/reboot",1)
-760 RETURN
 770 '----
 780 RESTORE 810:II$=LEFT$(ID$,3)
 790 READ A$,W$
