@@ -12,6 +12,7 @@
 120 PA$="msx/me/if/NET0/"  'path
 130 UR$="weather.tsukumijima.net"
 140 'create message
+150 UR$="weather.tsukumijima.net"
 160 SM$(0)="GET /api/forecast/city/"+LC$+" HTTP/1.0"+NL$
 170 SM$(1)="Host: "+UR$+NL$
 180 SM$(2)=""+NL$
@@ -33,12 +34,12 @@
 340 _IOTGET("device/dht/humidity",A):DT$=RIGHT$("   "+STR$(A),3):DX=110:DY=140:GOSUB 370
 350 IF ID$="" THEN GOSUB 440
 360 GOTO 320
-370 FOR I=1 TO LEN(DT$):A$=MID$(DT$,I,1)
+370 FOR DI=1 TO LEN(DT$):A$=MID$(DT$,DI,1)
 380 IF A$=":" THEN PX=0:PY=83:GOTO 420
 390 IF A$=" " THEN PX=150:PY=0:GOTO 420
 400 IF A$="-" THEN PX=150:PY=40:GOTO 420
 410 A=VAL(A$):PX=(AMOD5)*30:PY=-(A>4)*40
-420 COPY (PX,PY+1)-(PX+29,PY+42),1 TO (DX+I*30-30,DY),0
+420 COPY (PX,PY+1)-(PX+29,PY+42),1 TO (DX+DI*30-30,DY),0
 430 NEXT:RETURN
 440 '--------
 450 'connet
@@ -69,6 +70,10 @@
 700 'disconnet
 710 _IOTPUT(PA$+ "connect",0)
 720 RETURN
+730 'system reboot
+740 _IOTPUT("host/power/wait", WT)
+750 _IOTPUT("host/power/reboot",1)
+760 RETURN
 770 '----
 780 RESTORE 810:II$=LEFT$(ID$,3)
 790 READ A$,W$
